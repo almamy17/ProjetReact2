@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import myAxios from 'axios';
 import { Text, View, Image } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { ListMovie } from "../reactnative/listMovie";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -39,9 +38,9 @@ export const DetailsScreen=(props)=>{
                 <Image  style={{height:200, width:200, margin:5}} source={{
                 uri:base_url+dposter
                 }}/>
-                <Ionicons name={favoris.includes(details)?'heart':'heart-outline'} size={30} color={'tomato'} 
+                <Ionicons name={typeof favoris.find(element => element.id == details.id)!='undefined'?'heart':'heart-outline'} size={30} color={'tomato'} 
                 onPress={()=>{
-                    var Tfav=favoris.includes(details)
+                    var Tfav=typeof favoris.find(element => element.id == details.id)!='undefined'?true:false
                     
                     if(!(Tfav)){
                         //SetfIcon('heart');
@@ -49,7 +48,7 @@ export const DetailsScreen=(props)=>{
                     }
                     else{
                         //SetfIcon('heart-outline');
-                        actions.removeFavoris(favoris.indexOf(details))
+                        actions.removeFavoris(details.id)
                     };
                     //console.log(Tfav)               
                 }} />

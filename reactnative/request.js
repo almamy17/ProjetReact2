@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //import myAxios from 'axios';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ActivityIndicator, Button, FlatList, Image, ScrollView, Text, TextInput, TouchableHighlight, View } from "react-native";
@@ -21,7 +21,7 @@ export const Request=({navigation,route})=>{
         myAxios.get('https://api.themoviedb.org/3/search/movie?api_key=a8a68385432634fd5d90a12aa242519b&query='+searchMovie+'&language=fr-FR&page=1&include_adult=false')
             .then(response=>{
                 if(response.data){
-                    if(response.data.results.length>0){
+                    if(response.data.results){
                         SetDatasAxios(response.data.results)
                         //console.log(typeof(response.data.results))
                         SetLoadingAxios(false);
@@ -37,7 +37,8 @@ export const Request=({navigation,route})=>{
             }
             )
         
-    }
+            
+        }
         
     return(
         <View style={{marginTop:50, marginBottom:100 ,marginHorizontal:15}}>

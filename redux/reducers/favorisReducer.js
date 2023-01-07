@@ -13,7 +13,7 @@ const favorisReducer = (state = initialState, action) => {
         case REMOVE_FAVORIS:
             return {
                 ...state,
-                favoris: state.favoris.filter((elem, index) => index != action.value)
+                favoris: state.favoris.filter((elem) => elem.id != action.value)
             };
         default:
             return state;

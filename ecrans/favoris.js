@@ -39,7 +39,7 @@ export const Favoris = ({ navigation, route }) => {
                             display: "flex"
                         }}>
                   <TouchableOpacity
-                        onPress={() => actions.removeFavoris(index)}>
+                        onPress={() => actions.removeFavoris(data.id)}>
                         <Ionicons name={'close-circle'} color={'red'} size={30}  />
                     </TouchableOpacity>
                   </View>
