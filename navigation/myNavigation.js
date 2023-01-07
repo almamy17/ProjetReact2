@@ -57,6 +57,7 @@ export const MyNavigation=()=>{
             },
             tabBarActiveTintColor: 'tomato',
             tabBarInactiveTintColor: 'gray',
+            tabBarStyle: { position: 'absolute' }
           })}
         >
           <Tab.Screen name="Accueil" component={HomeScreen} options={{headerShown:false}} />
