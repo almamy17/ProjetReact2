@@ -36,7 +36,7 @@ export const DisplayMovie =({datas,navigation,route})=>{
                     <Ionicons name={typeof favoris.find(element => element.id == data.id)!='undefined'?'heart':'heart-outline'} size={25} color={'tomato'}
                     onPress={()=>{
                         var Tfav=typeof favoris.find(element => element.id == data.id)!='undefined'? true:false;
-                        console.log(favoris.indexOf(data))
+                        // console.log(favoris.indexOf(data))
                         if(!(Tfav)){
                             //SetfIcon('heart');
                             actions.addFavoris(data)
